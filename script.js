@@ -3,13 +3,10 @@
 
     let model, webcam, labelContainer, maxPredictions;
 
+    const resultContainer = document.getElementById("result");
     const startButton = document.getElementById("start-button")
-    
-    startButton.addEventListener("click", () => {
-      console.log("Button was clicked")
-      startButton.innerHTML = "loading..."
-      init();
-    })
+
+    const classLabels = ["Cirrus", "Cirrocumulus", "Cirrostratus", "Altocumulus","Altostratus", "Nimbostratus", "Cumulonimbus", "Cumulus", "Stratus", "Stratocumulus"];
 
     // Load the image model and setup the webcam
     async function init() {
@@ -45,12 +42,25 @@
     }
 
     // run the webcam image through the image model
+    var scores = [];
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
+
         for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
+            scores.push(prediction[i].probability);
         }
+
+        for (let i = 0; i < scores.length; i++) {
+            var maxScore = scores[0];
+            var maxLabelIndex = 0;
+            if (scores[i] > maxScore) {
+                maxScore = scores;
+                maxLabelIndex = i;
+            }
+            result.innerHTML = classLabels[maxLabelIndex];
+        }
+        scores = [];
     }
