@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Cloud ID</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="logo 2.png">
   <script src="script.js"></script>
 </head>
 
 <body>
-  <h1>Cloud Identifier</h1>
-<button type="button" id="start-button" class="button" onclick="init()">Start</button>
-<h1></h1>
-<h1></h1>
-  <h3>Current cloud type: <span id="result">N/A</span></h3>
-<h1></h1>
-<h1></h1>
+  <div class="svg-container">
+    <svg viewbox="0 0 800 400" class="svg">
+      <path id="curve" fill="#50c6d8" d="M 800 300 Q 400 350 0 300 L 0 0 L 800 0 L 800 300 Z">
+      </path>
+    </svg>
+  </div>
+  
+  <header>
+    <img src="logo 1.png" alt="Cloud ID Logo" width="710" height="220">
+    <br></br>
+    <h1>From CLOUDY 💨 to CLOUD NINE 🌤</h1>
+  </header>
+<h3></h3>
+<button type="button" id="start-button" class="button" onclick="init()">Start Looking!</button>
+<br></br>
+<br></br>
+<br></br>
+  <h3 class="result">Current Cloud Type: <span id="result">Click Start 🔼</span></h3>
+<br></br>
+  <h3 class="weather">Possible Weather Conditions: <span id="weather">N/A</span></h3>
+<br></br>
 <div id="webcam-container"></div>
-<h1></h1>
+<br></br>
 <div id="label-container" class="label"></div>
+  <br></br>
+<footer>
+  <h3>Presented to you by: Caitlin, Larissa, Jamie, Yawen @ YRHacks</h3>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-
   <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
 </body>
-<footer></footer>
 </html>
